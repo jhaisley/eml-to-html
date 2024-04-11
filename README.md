@@ -27,6 +27,14 @@ eml-to-html *.eml
 
 are both valid calls to the command. Cheers!
 
+Additionally, you can use -r to recurse directories.
+```
+eml-to-html -r [DIRNAME] or *
+```
+Will run recursivly.  
+This option also skips creating a file if it already exists to allow for incremental conversions.
+
+
 ✨
 
 ## Example
