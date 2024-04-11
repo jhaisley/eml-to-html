@@ -34,8 +34,16 @@ eml-to-html -r [DIRNAME] or *
 Will run recursivly.  
 This option also skips creating a file if it already exists to allow for incremental conversions.
 
-
-✨
+## db-to-html
+db-to-html is a companion to eml-to-html as some email backups, such as GYB will create a msg-db.sqlite database.
+```
+db-to-html [DB FILE]
+```
+or 
+```
+db-to-html [DB FILE] [OUTPUT FILE]
+```
+Both work fine.
 
 ## Example
 
