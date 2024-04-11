@@ -2,6 +2,7 @@ from email import message_from_file
 from email.message import Message
 from pathlib import Path
 import sys
+import argparse
 from typing import Any, List, Union
 
 
@@ -45,11 +46,21 @@ def eml_to_html(eml_path_str: Union[str, Path]) -> Path:
     return html_path
 
 
-def main():
-    file_paths: List[str] = sys.argv[1:]
 
-    for file_path in file_paths:
-        eml_to_html(file_path)
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-r', '--recursive', action='store_true', help='Recursively process directories')
+    parser.add_argument('paths', nargs='*', help='Paths to process')
+    args = parser.parse_args()
+
+    for path_str in args.paths:
+        path = Path(path_str)
+        if path.is_file():
+            eml_to_html(path)
+        elif path.is_dir() and args.recursive:
+            for eml_path in path.rglob('*.eml'):
+                eml_to_html(eml_path)
+
 
 
 if __name__ == "__main__":
