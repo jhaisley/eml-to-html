@@ -1,74 +1,58 @@
-# eml-to-html
+# Enhanced EML to HTML Converter
 
-Tiny CLI tool that converts `.eml` email files to `.html` files.
+A comprehensive CLI tool that transforms `.eml` email files into readable `.html` files, now featuring recursive directory processing and database conversion for complete email account preservation.
 
-## Installation
-```
-pip install eml-to-html
-```
+## Features
+- **EML to HTML Conversion**: Quickly convert single or multiple `.eml` files to `.html`.
+- **Recursive Directory Processing**: Use the `-r` flag to process all `.eml` files within a directory, including nested directories.
+- **DB to HTML Conversion**: Specifically catered for email backups (e.g., from GYB) stored in a `msg-db.sqlite` database, allowing direct conversion to `.html`.
 
 ## Usage
+Basic usage:
 ```
 eml-to-html [EML FILE]...
 ```
 
-Feel free to pass a _glob_. For example:
-
+For multiple files or using a _glob_:
 ```
-eml-to-html some_email_file_1.eml some_email_file_2.eml
-```
-
-and
-
-```
+eml-to-html example1.eml example2.eml
 eml-to-html *.eml
 ```
 
-are both valid calls to the command. Cheers!
-
-Additionally, you can use -r to recurse directories.
+To recursively process directories:
 ```
-eml-to-html -r [DIRNAME] or *
+eml-to-html -r [DIRECTORY]
 ```
-Will run recursivly.  
-This option also skips creating a file if it already exists to allow for incremental conversions.
+This option intelligently skips existing files, facilitating incremental conversions.
 
-## db-to-html
-db-to-html is a companion to eml-to-html as some email backups, such as GYB will create a msg-db.sqlite database.
+### DB to HTML Conversion
+For converting email databases:
 ```
 db-to-html [DB FILE]
 ```
-or 
+Optionally, specify an output file:
 ```
 db-to-html [DB FILE] [OUTPUT FILE]
 ```
-Both work fine.
 
 ## Example
 
-Running `eml-to-html` on the [`test_emails`](https://github.com/dunnkers/eml-to-html/tree/master/test_emails) folder:
-
+### EML to HTML
 ```
 $ eml-to-html test_emails/*.eml
-🟢 Written `test_email_1.html`
-🟢 Written `test_email_2.html`
+ Written: `test_email_1.html`
+ Written: `test_email_2.html`
 ```
 
-File tree is now:
-
+### DB to HTML
 ```
-$ tree test_emails 
-test_emails
-├── test_email_1.eml
-├── test_email_1.html
-├── test_email_2.eml
-└── test_email_2.html
-
-0 directories, 4 files
+$ db-to-html msg-db.sqlite
+ Processed: `msg-db.sqlite` into HTML files.
 ```
 
 ## About
-The original eml-to-html micro module was written by [Jeroen Overschie](https://jeroenoverschie.nl/) in 2022.
+The Enhanced EML to HTML Converter is developed by Jordan Haisley, building upon the original micro module crafted by [Jeroen Overschie](https://jeroenoverschie.nl/) in 2022. This version introduces advanced functionalities—recursive directory processing and database conversion—to meet the evolving needs for comprehensive email data processing and preservation.
 
-This version of eml-to-html contains enhancements and features not present in the original micro module, and 
-aims to be a more feature-complee utility.  This version is currently maintained by Jordan Haisley
+For more information, updates, or to contribute, please visit the [GitHub repository](https://github.com/jhaisley/eml-to-html).
+
+Your feedback and contributions are always welcomed as we aim to make email data management easier and more accessible for everyone.
