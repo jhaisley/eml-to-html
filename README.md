@@ -1,5 +1,4 @@
 # eml-to-html
-[![build status](https://github.com/dunnkers/eml-to-html/actions/workflows/python-app.yml/badge.svg)](https://github.com/dunnkers/eml-to-html/actions/workflows/python-app.yml) [![pypi badge](https://img.shields.io/pypi/v/eml-to-html.svg?maxAge=3600)](https://pypi.org/project/eml-to-html/) [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Downloads](https://pepy.tech/badge/eml-to-html/month)](https://pepy.tech/project/eml-to-html) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/eml-to-html) ![PyPI - License](https://img.shields.io/pypi/l/hydra-core)
 
 Tiny CLI tool that converts `.eml` email files to `.html` files.
 
@@ -69,4 +68,7 @@ test_emails
 ```
 
 ## About
-This micro module was written by [Jeroen Overschie](https://jeroenoverschie.nl/) in 2022.
+The original eml-to-html micro module was written by [Jeroen Overschie](https://jeroenoverschie.nl/) in 2022.
+
+This version of eml-to-html contains enhancements and features not present in the original micro module, and 
+aims to be a more feature-complee utility.  This version is currently maintained by Jordan Haisley
